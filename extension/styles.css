@@ -4,26 +4,26 @@
 .cc-bubble:hover {
   transform: scale(1.1);
 }
+.cc-bubble:hover + .cc-dialog {
+  display: inline-block;
+}
 
 .cc-dialog {
   display: none;
+  position: absolute;
   margin-left: .75em;
   padding: .5em;
   background-color: #f8f8f8;
   border-radius: 10px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   border: 2px solid rgb(142, 210, 218);
+  z-index: 1000;
+  width: 100%;
 }
 .cc-dialog.issue {
   border-color: hotpink;
 }
 
 .cc-bubble-container {
-  width: fit-content;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.cc-bubble-container:hover > .cc-dialog {
-  display: block;
+  position: relative;
 }
