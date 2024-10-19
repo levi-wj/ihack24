@@ -1,0 +1,25 @@
+.cc-bubble {
+  cursor: pointer;
+}
+.cc-bubble:hover {
+  transform: scale(1.1);
+}
+
+.cc-dialog {
+  display: none;
+  margin-left: .75em;
+  padding: .5em;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.cc-bubble-container {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cc-bubble-container:hover > .cc-dialog {
+  display: block;
+}

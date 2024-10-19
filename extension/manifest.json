@@ -1,7 +1,7 @@
 {
-    "name": "ihack24",
+    "name": "Conscious Cart",
     "version": "1.0.0",
-    "description": "Ensure you support ethical purchasing practices and avoid supporting forced and child labor",
+    "description": "Ensure your amazon purchasing practices are ethical and avoid supporting inhumane labor",
     "manifest_version": 3,
     "author": "Levi Jones, Joshua Sooaemalelagi",
     "background": {
@@ -9,12 +9,24 @@
     },
     "action":{
         "default_popup": "index.html",
-        "default_title": "ihack24 title CHANGE ME"
+        "default_title": "Conscious Cart"
     },
     "host_permissions": [
         "https://www.amazon.com/*"
     ],
     "permissions": [
         "tabs", "activeTab", "scripting"
-    ]
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": ["/img/logo48.png", "/img/logo_notif48.png"],
+            "matches": [ "https://www.amazon.com/*" ]
+        }
+    ],
+    "icons": {
+        "16": "/img/logo16.png",
+        "32": "/img/logo32.png",
+        "48": "/img/logo48.png",
+        "128": "/img/logo128.png"
+    }
 }

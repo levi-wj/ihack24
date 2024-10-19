@@ -1,9 +1,28 @@
 function createBubble (country) {
-  const bubble = document.createElement('div');
-  const amazonCoreprice = document.getElementById('centerCol');
-  bubble.classList.add('bubble');
-  bubble.innerText = country;
-  amazonCoreprice.insertAdjacentElement('afterend', bubble);
+  const bubContainer = document.createElement('div');
+  const bubble = document.createElement('img');
+  const dialog = document.createElement('div');
+  const amazonCenterCol = document.getElementById('centerCol');
+
+  bubble.src = chrome.runtime.getURL('/img/logo_notif48.png');
+  bubble.setAttribute('width', 40);
+  bubble.classList.add('cc-bubble');
+
+  dialog.classList.add('cc-dialog');
+  dialog.innerText = `This product is made in ${country}`;
+
+  bubContainer.classList.add('cc-bubble-container');
+  bubContainer.appendChild(bubble);
+  bubContainer.appendChild(dialog);
+
+  amazonCenterCol.insertBefore(bubContainer, amazonCenterCol.firstChild);
+}
+
+function insertCSS (tabId) {
+  chrome.scripting.insertCSS({
+    target: { tabId },
+    files: ["styles.css"],
+  });
 }
 
 const getCountryOfOrigin = async (asin) => {
@@ -30,7 +49,7 @@ chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
       const res = await getCountryOfOrigin(asin);
       const countryName = res[0].countryName;
 
-      console.log(countryName);
+      insertCSS(tabId);
 
       chrome.scripting.executeScript({
         target: { tabId: tabId },
