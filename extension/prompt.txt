@@ -1,0 +1,38 @@
+The following is a government dataset about specific countries, types of goods produced by them, and whether or not forced or child labor was involved.
+
+BEGIN DATA
+Country/Area	TVPRA Input Good	Child Labor	Forced Labor	Country/Area	TVPRA Downstream Good	Downstream Goods at Risk
+Bolivia	Zinc	X		South Korea	Indium	Conductive Glass,Touchscreen Devices, Flatscreen Devices, Televisions, Phones, Tablets, Semiconductors, Solar Panels, Indium-tin Oxide, and LEDs
+China	Aluminum		X	China	Auto Parts and Components (Aluminum) 	Automotive Vehicles, Aircrafts, Household Appliances, Healthcare Equipment, Electronics, Food Packaging, Beverage Cans, Construction Supplies and Tools
+China	Cotton		X	China	Garments (Cotton) 	Garments, Textiles, Cotton-Based Products
+China	Polysilicon		X	China	Photovoltaic Ingots	Silica-Based Products, Solar Products, Semiconductors
+China	Polysilicon		X	China	Solar Cells	Silica-Based Products, Solar Products, Semiconductors
+Côte d’Ivoire 	Cocoa	X		Côte d’Ivoire 	Chocolate	Candy, Baked Goods, Beverages, Ice Cream, Cosmetic Products, Soap
+Côte d’Ivoire and Ghana	Cocoa	X		Cocoa Butter 	Candy, Baked Goods, Beverages, Ice Cream, Cosmetic Products, Soap
+Democratic Republic of the Congo	Copper Ore	X		Democratic Republic of the Congo	Copper Products 	Electric Vehicles, Electrical Equipment, Electrical Wiring, Brass, Steel, Telecommunications Products, Construction Materials
+Dominican Republic	Sugarcane		X	Dominican Republic	Bagasse 	Beverages, Alcoholic Beverages, Candy, Baked Goods, Processed Food Products, Animal Feed, Paper, Pulp, Construction Materials, Biofuels, Industrial Chemicals, Medicines, Medicinal Alcohol
+Dominican Republic	Sugarcane		X	Dominican Republic	Rum	Beverages, Alcoholic Beverages, Candy, Baked Goods, Processed Food Products, Animal Feed, Paper, Pulp, Construction Materials, Biofuels, Industrial Chemicals, Medicines, Medicinal Alcohol
+Ghana	Cocoa	X		Ghana	Cococa Products, Baked Goods, Beverages, Ice Cream, Cosmetic Products, Soap
+Indonesia	Palm Fruit	X	X	Indonesia	Crude Palm Kernel Oil	Cooking Oils, Animal Feed, Baked Goods, Biofuels, Beverages, Household and Industrial Products, Infant Formula, Personal Care Products and Cosmetic Products
+Malawi	Tobacco	X	X	Malawi	Cigarettes (Tobacco) 	Tobacco Products
+Malaysia	Palm Fruit	X	X	India	Cooking Oil (Palm Oil Blends)	Animal Feed, Baked Goods, Beverages, Household and Industrial Products, Personal Care Products, Cosmetic Products, Infant Formula, Shortening, Pet Food
+Philippines	Coconut	X		Philippines	Coconut Oil 	Animal Feed, Household and Industrial Items, Bakery Items, Personal Care and Cosmetic Products
+Thailand	Fish		X	Thailand	Animal Feed	Shrimp, Poultry, Cosmetics, Supplements, Pet Food
+END DATA
+
+Using the data provided here, predict whether this following amazon product involved child or forced labor in its creation.
+
+Amazon product title: Fruit of the Loom Mens Eversoft Cotton Stay Tucked Crew T-Shirt
+Seller country: China
+
+Your response must be ONLY a SINGLE object of strict JSON format. It must match this example exactly:
+
+{ "flag": "0 or 1", "confidence": "0-100%" }
+
+flag is whether you think that this product aligns with one of the rows in the table that involves either child or forced labor.
+confidence is a percentage that weighs how likely the prediction is correct strictly based on the provided data.
+
+
+
+JSON escaped
+The following is a government dataset about specific countries, types of goods produced by them, and whether or not forced or child labor was involved.\r\n\r\nBEGIN DATA\r\nCountry\/Area\tTVPRA Input Good\tChild Labor\tForced Labor\tCountry\/Area\tTVPRA Downstream Good\tDownstream Goods at Risk\r\nBolivia\tZinc\tX\t\tSouth Korea\tIndium\tConductive Glass,Touchscreen Devices, Flatscreen Devices, Televisions, Phones, Tablets, Semiconductors, Solar Panels, Indium-tin Oxide, and LEDs\r\nChina\tAluminum\t\tX\tChina\tAuto Parts and Components (Aluminum) \tAutomotive Vehicles, Aircrafts, Household Appliances, Healthcare Equipment, Electronics, Food Packaging, Beverage Cans, Construction Supplies and Tools\r\nChina\tCotton\t\tX\tChina\tGarments (Cotton) \tGarments, Textiles, Cotton-Based Products\r\nChina\tPolysilicon\t\tX\tChina\tPhotovoltaic Ingots\tSilica-Based Products, Solar Products, Semiconductors\r\nChina\tPolysilicon\t\tX\tChina\tSolar Cells\tSilica-Based Products, Solar Products, Semiconductors\r\nC\u00F4te d\u2019Ivoire \tCocoa\tX\t\tC\u00F4te d\u2019Ivoire \tChocolate\tCandy, Baked Goods, Beverages, Ice Cream, Cosmetic Products, Soap\r\nC\u00F4te d\u2019Ivoire and Ghana\tCocoa\tX\t\tCocoa Butter \tCandy, Baked Goods, Beverages, Ice Cream, Cosmetic Products, Soap\r\nDemocratic Republic of the Congo\tCopper Ore\tX\t\tDemocratic Republic of the Congo\tCopper Products \tElectric Vehicles, Electrical Equipment, Electrical Wiring, Brass, Steel, Telecommunications Products, Construction Materials\r\nDominican Republic\tSugarcane\t\tX\tDominican Republic\tBagasse \tBeverages, Alcoholic Beverages, Candy, Baked Goods, Processed Food Products, Animal Feed, Paper, Pulp, Construction Materials, Biofuels, Industrial Chemicals, Medicines, Medicinal Alcohol\r\nDominican Republic\tSugarcane\t\tX\tDominican Republic\tRum\tBeverages, Alcoholic Beverages, Candy, Baked Goods, Processed Food Products, Animal Feed, Paper, Pulp, Construction Materials, Biofuels, Industrial Chemicals, Medicines, Medicinal Alcohol\r\nGhana\tCocoa\tX\t\tGhana\tCococa Products, Baked Goods, Beverages, Ice Cream, Cosmetic Products, Soap\r\nIndonesia\tPalm Fruit\tX\tX\tIndonesia\tCrude Palm Kernel Oil\tCooking Oils, Animal Feed, Baked Goods, Biofuels, Beverages, Household and Industrial Products, Infant Formula, Personal Care Products and Cosmetic Products\r\nMalawi\tTobacco\tX\tX\tMalawi\tCigarettes (Tobacco) \tTobacco Products\r\nMalaysia\tPalm Fruit\tX\tX\tIndia\tCooking Oil (Palm Oil Blends)\tAnimal Feed, Baked Goods, Beverages, Household and Industrial Products, Personal Care Products, Cosmetic Products, Infant Formula, Shortening, Pet Food\r\nPhilippines\tCoconut\tX\t\tPhilippines\tCoconut Oil \tAnimal Feed, Household and Industrial Items, Bakery Items, Personal Care and Cosmetic Products\r\nThailand\tFish\t\tX\tThailand\tAnimal Feed\tShrimp, Poultry, Cosmetics, Supplements, Pet Food\r\nEND DATA\r\n\r\nUsing the data provided here, predict whether this following amazon product involved child or forced labor in its creation.\r\n\r\nAmazon product title: Fruit of the Loom Mens Eversoft Cotton Stay Tucked Crew T-Shirt\r\nSeller country: China\r\n\r\nYour response must be ONLY a SINGLE object of strict JSON format. It must match this example exactly:\r\n\r\n{ \"flag\": \"0 or 1\", \"confidence\": \"0-100%\" }\r\n\r\nflag is whether you think that this product aligns with one of the rows in the table that involves either child or forced labor.\r\nconfidence is a percentage that weighs how likely the prediction is correct strictly based on the provided data.

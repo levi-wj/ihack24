@@ -19,7 +19,7 @@
     ],
     "web_accessible_resources": [
         {
-            "resources": ["/img/logo48.png", "/img/logo_notif48.png"],
+            "resources": ["/img/logo48.png", "/img/logo_notif48.png", "/img/css-loader.gif"],
             "matches": [ "https://www.amazon.com/*" ]
         }
     ],

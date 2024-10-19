@@ -1,21 +1,41 @@
 function createBubble (country) {
+  const amazonCenterCol = document.getElementById('centerCol');
   const bubContainer = document.createElement('div');
   const bubble = document.createElement('img');
   const dialog = document.createElement('div');
-  const amazonCenterCol = document.getElementById('centerCol');
 
-  bubble.src = chrome.runtime.getURL('/img/logo_notif48.png');
+  bubble.src = chrome.runtime.getURL('/img/logo48.png');
   bubble.setAttribute('width', 40);
   bubble.classList.add('cc-bubble');
 
   dialog.classList.add('cc-dialog');
-  dialog.innerText = `This product is made in ${country}`;
+  if (country) {
+    dialog.classList.add('issue');
+    dialog.innerText = `This product is made in ${country}`;
+  } else {
+    dialog.innerText = 'We found no issues with this product';
+  }
 
   bubContainer.classList.add('cc-bubble-container');
   bubContainer.appendChild(bubble);
   bubContainer.appendChild(dialog);
 
+  // Delete spinner
+  amazonCenterCol.removeChild(document.getElementById('cc-spinner'));
+
   amazonCenterCol.insertBefore(bubContainer, amazonCenterCol.firstChild);
+}
+
+function createSpinner () {
+  const amazonCenterCol = document.getElementById('centerCol');
+  const spinner = document.createElement('img');
+
+  spinner.src = chrome.runtime.getURL('/img/css-loader.gif');
+  spinner.setAttribute('width', 40);
+  spinner.classList.add('cc-spinner');
+  spinner.id = 'cc-spinner';
+
+  amazonCenterCol.insertBefore(spinner, amazonCenterCol.firstChild);
 }
 
 function insertCSS (tabId) {
@@ -46,15 +66,19 @@ chrome.tabs.onUpdated.addListener(async function (tabId, changeInfo, tab) {
     const asin = split[5];
 
     if (split[2] === 'www.amazon.com' && split[4] === 'dp' && asin) {
-      const res = await getCountryOfOrigin(asin);
-      const countryName = res[0].countryName;
-
       insertCSS(tabId);
+      chrome.scripting.executeScript({
+        target: { tabId: tabId },
+        function: createSpinner,
+      });
+
+      const res = await getCountryOfOrigin(asin);
+      const countryName = res?.[0]?.countryName;
 
       chrome.scripting.executeScript({
         target: { tabId: tabId },
         function: createBubble,
-        args: [countryName],
+        args: [countryName || null],
       });
     }
   }
