@@ -1,0 +1,11 @@
+{
+    "name": "ihack24",
+    "version": "1.0.0",
+    "description": "Ensure you support ethical purchasing practices and avoid supporting forced and child labor",
+    "manifest_version": 3,
+    "author": "Levi Jones, Joshua Sooaemalelagi",
+    "action":{
+        "default_popup": "index.html",
+        "default_title": "ihack24 title CHANGE ME"
+    }
+}
