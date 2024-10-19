@@ -1,6 +1,6 @@
 function createBubble (country) {
   const bubble = document.createElement('div');
-  const amazonCoreprice = document.getElementById('corePrice_desktop');
+  const amazonCoreprice = document.getElementById('centerCol');
   bubble.classList.add('bubble');
   bubble.innerText = country;
   amazonCoreprice.insertAdjacentElement('afterend', bubble);
